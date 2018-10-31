@@ -103,7 +103,8 @@ void calculate_quadErrors(double *r_arr,double* qe_arr, int arr_size)
 	
 	double average_r = sum/arr_size;
 	
-	for(int i = 0; i < arr_size; i++){
+	for(int i = 0; i < arr_size; i++)
+	{
 		qe_arr[i] = (r_arr[i] - average_r)*(r_arr[i] - average_r);
 		if(isEqual(qe_arr[i],0,0.0001)) qe_arr[i] = 0;
 	}
