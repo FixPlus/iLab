@@ -29,9 +29,9 @@ int main(){
 	Text sorted = sortByAlphabet(poem,1);
 	Text backSorted = sortByAlphabet(poem,-1);
 	
-	save_the_text("sort_new.txt",poem);
-	save_the_text("sort_new_sorted.txt",sorted);
-	save_the_text("sort_new_backSorted.txt",backSorted);
+	saveText("sort_new.txt",poem);
+	saveText("sort_new_sorted.txt",sorted);
+	saveText("sort_new_backSorted.txt",backSorted);
 	printf("done!");
 	
 	free(*poem.lanes);
@@ -153,7 +153,7 @@ Text compileFromBuf(char* buf, unsigned length){
 }
 
 Text initText(const char* filename){
-	FILE* file = open_file(filename);
+	FILE* file = openFile(filename);
 	
 	if(file == NULL){
 		printf("Cannot open file %s !", filename);
@@ -184,12 +184,12 @@ Text copyText(Text text){
 	return ret;	
 }
 
-FILE* open_file(const char* filename){
+FILE* openFile(const char* filename){
 	FILE* ret = fopen(filename,"r");
 	return ret;
 }
 
-void save_the_text(const char* filename, Text text){
+void saveText(const char* filename, Text text){
 	FILE* file = fopen(filename,"w");
 	
 	for(int i = 0; i < text.numoflanes;i++)
