@@ -146,6 +146,7 @@ Text compileFromBuf(char* buf, unsigned length){
 		}
 	}
 	
+	*(buf + length) = 0;
 	text.lanes[text.numoflanes] = buf + length;
 	
 	return text;
